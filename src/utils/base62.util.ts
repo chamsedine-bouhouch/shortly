@@ -48,7 +48,6 @@ export function hashUrlToBase62(
   url: string,
   minLength = SHORT_CODE_LENGTH,
 ): string {
-
   const hash = createHash('sha256').update(url).digest('hex');
   const hexSnippet = hash.substring(0, HASH_SNIPPET_LENGTH);
 
