@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { hashUrlToBase62 } from './utils/base64.util';
+import { hashUrlToBase62 } from './utils/base62.util';
 
 @Injectable()
 export class AppService {
