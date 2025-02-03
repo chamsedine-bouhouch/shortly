@@ -66,11 +66,6 @@ export class UrlShortenerController {
   @Delete(':shortCode')
   @HttpCode(HttpStatus.NO_CONTENT)
   async remove(@Param('shortCode') shortCode: string): Promise<void> {
-    const deleted = await this.urlShortenerService.removeByShortCode(shortCode);
-    if (!deleted) {
-      throw new NotFoundException(
-        `Short URL with code "${shortCode}" not found.`,
-      );
-    }
+    return await this.urlShortenerService.removeByShortCode(shortCode);
   }
 }
