@@ -26,12 +26,9 @@ import { UrlShortenerModule } from './url-shortener/url-shortener.module';
 
     // MongoDB with Mongoose
     MongooseModule.forRootAsync({
-      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGO_URI'),
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+        uri: configService.get<string>('MONGO_URI'), // Only the URI is needed
       }),
     }),
 
