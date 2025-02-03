@@ -33,6 +33,7 @@ export class TypeOrmShortUrlRepository implements IShortUrlRepository {
   async findAll(): Promise<{ shortCode: string; originalUrl: string }[]> {
     return this.shortUrlRepository.find({
       select: ['id', 'shortCode', 'originalUrl', 'createdAt'],
+      order: { createdAt: 'DESC' }, // Sort by createdAt descending
     });
   }
 

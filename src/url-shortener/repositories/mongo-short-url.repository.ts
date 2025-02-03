@@ -26,7 +26,11 @@ export class MongoShortUrlRepository implements IShortUrlRepository {
   }
 
   async findAll(): Promise<{ shortCode: string; originalUrl: string }[]> {
-    return this.shortUrlModel.find().select('shortCode originalUrl').exec();
+    return this.shortUrlModel
+      .find()
+      .select('shortCode originalUrl')
+      .sort({ createdAt: -1 }) // Sort by createdAt descending
+      .exec();
   }
 
   async removeByShortCode(shortCode: string): Promise<void> {
