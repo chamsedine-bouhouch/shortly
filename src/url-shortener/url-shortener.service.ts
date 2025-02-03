@@ -27,7 +27,7 @@ export class UrlShortenerService {
     this.logger.debug(`Generated short code: ${shortCode}`);
 
     // Save to DB
-    return await this.repository.createShortUrl(shortCode, originalUrl);
+    return await this.repository.createShortUrl(originalUrl, shortCode);
   }
 
   async findByShortCode(shortCode: string): Promise<string | null> {

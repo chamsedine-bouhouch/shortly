@@ -8,6 +8,11 @@ async function bootstrap() {
   // Enable global validation
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(3000);
+  app.enableCors({
+    origin: 'http://localhost:3000', // Replace with your Next.js app's URL
+    methods: ['GET', 'POST', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+  });
+  await app.listen(3001);
 }
 bootstrap();
