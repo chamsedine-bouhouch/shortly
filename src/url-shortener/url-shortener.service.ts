@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ShortUrlRepositoryFactory } from './repositories/short-url-repository.factory';
 import { IShortUrlRepository } from './repositories/short-url.repository';
-import { hashUrlToBase62 } from 'src/utils/base62.util';
+import { hashUrlToBase62 } from '../utils/base62.util';
 
 @Injectable()
 export class UrlShortenerService {
